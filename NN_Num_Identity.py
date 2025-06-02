@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 """
 Train a CNN on MNIST (or load a saved model) and open a Tkinter window to draw digits and predict.
+Note1: Softmax for output layer is not recommended. Future iterations would have the output use a linear activation
+Note2: With linear output change compiler to loss=SparseCategoricalCrossentropy(from_logits=True) and use a softmax conversion
+Conversion: def my_softmax(z):
+                ez = np.exp(z)
+                sm = ez/np.sum(ez)
+                return(sm)
 
 Dependencies:
     pip install tensorflow numpy pillow
